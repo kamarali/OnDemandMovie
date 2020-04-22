@@ -1,0 +1,194 @@
+﻿<div class="addCategory-content" ng-controller="categoryCtrl as cctrl">
+    <div id="sidenav" class="sidenav" ng-class="cctrl.sideNavClass">
+        <a class="closebtn" ng-click="cctrl.closeNav()">&times;</a>
+        <a ng-click="cctrl.users();">Admin</a>
+        <a ng-click="cctrl.addVideo();">Video</a>
+        <a ng-click="cctrl.addCategory();">Category</a>
+        <a ng-click="cctrl.addReport();">Report</a>
+    </div>
+    <div id="main" ng-class="cctrl.mainClass">
+        <div class="row" style="margin-top:-55px;">
+            <div class="col-md-4">
+                <span ng-click="cctrl.openNav()" ng-show="cctrl.showHamburger">
+                    <h3>&#9776; On Demand Video</h3>
+                </span>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-2" style="margin-top:15px">
+                <h4> Welcome {{cctrl.user.firstname}} </h4>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="cctrl.goHome();">Home</button>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="cctrl.doLogOutFromApp();">Log Out</button>
+            </div>
+        </div>
+
+        <div>
+
+            <div class="m-b-20">
+                <h4 class="text-left p-l-15">Add Category  </h4>
+            </div>
+            <form name="formAddCategory" ng-submit="cctrl.save()" autocomplete="off" novalidate>
+                <div class="p-r-10">
+                    <!--CATEGORY NAME-->
+                    <div class="input-group"
+                         ng-class="{ 'm-b-15' : !(formAddCategory.name.$invalid && !formAddCategory.name.$pristine) }">
+                        <span class="input-group-addon"><label class="input-group-sm col-sm-pull-1">Name</label></span>
+                        <div class="fg-line fg-line-{{currentSkin}}">
+                            <input name="name" type="text" class="form-control"
+                                   placeholder="Name"
+                                   ng-model="cctrl.addCategories.name"
+                                   required autofocus>
+                        </div>
+                        <small ng-show="formAddCategory.name.$invalid && !formAddCategory.name.$pristine" class="help-block">Enter valid name</small>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                        type="submit"
+                        ng-disabled="formAddCategory.$invalid"
+                        data-toggle="modal" data-target="#save">
+                    <i class="zmdi zmdi-arrow-forward"></i> Add
+                </button>
+            </form>
+        </div>
+        <div>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                        <th>
+                            Update
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat-start="category in cctrl.categories track by $index">
+                        <td>
+                            {{category.name}}
+                        </td>
+                        <td>
+                            <span ng-click="cctrl.setCategory(category.id)" data-toggle="modal" data-target="#confirmDelete">Delete</span>
+                            <div class="modal fade" id="confirmDelete" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Are you Sure</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Do you want to delete?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cctrl.removeCategory();">Yes</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button ng-if="cctrl.rowNumber == $index" ng-click="cctrl.detailView(-1)">-</button>
+                            <button ng-if="cctrl.rowNumber != $index" ng-click="cctrl.detailView($index,category)">+</button>
+                        </td>
+                    </tr>
+                    <tr ng-if="cctrl.rowNumber == $index" ng-repeat-end="">
+                        <td colspan="4">
+                            <div>
+                                <form name="formUpdateCategory" ng-submit="cctrl.updateCategoryEntity()" autocomplete="off" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-1">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="p-r-10">
+                                                <!--CATEGORY NAME-->
+                                                <div class="input-group"
+                                                     ng-class="{ 'm-b-15' : !(formUpdateCategory.name.$invalid && !formUpdateCategory.name.$pristine) }">
+                                                    <span class="input-group-addon"><label class="input-group-sm col-sm-pull-1">Name</label></span>
+                                                    <div class="fg-line fg-line-{{currentSkin}}">
+                                                        <input name="name" type="text" class="form-control"
+                                                               placeholder="Name"
+                                                               ng-model="cctrl.updateCategory.name"
+                                                               ng-change="cctrl.ckeckMaodelChange();"
+                                                               required autofocus>
+                                                    </div>
+                                                    <small ng-show="formUpdateCategory.name.$invalid && !formUpdateCategory.name.$pristine " class="help-block">Enter valid name</small>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                                                    type="submit"
+                                                    ng-disabled="formUpdateCategory.$invalid"
+                                                    data-toggle="modal" data-target="#confirmUpdate">
+                                                <i class="zmdi zmdi-arrow-forward"></i> Update
+                                            </button>
+                                        </div>
+                                        <div class="col-md-2">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade" id="save" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sucess</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Category Added Sucessfuly.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="confirmUpdate" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sucess</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Category Updated Sucessfuly.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

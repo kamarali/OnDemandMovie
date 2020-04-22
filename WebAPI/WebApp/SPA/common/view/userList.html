@@ -1,0 +1,83 @@
+﻿<div class="addCategory-content" ng-controller="userCtrl as uctrl">
+    <div id="sidenav" class="sidenav" ng-class="uctrl.sideNavClass">
+        <a class="closebtn" ng-click="uctrl.closeNav()">&times;</a>
+        <a ng-click="uctrl.users();">Admin</a>
+        <a ng-click="uctrl.addVideo();">Video</a>
+        <a ng-click="uctrl.addCategory();">Category</a>
+        <a ng-click="uctrl.addReport();">Report</a>
+    </div>
+    <div id="main" ng-class="uctrl.mainClass">
+        <div class="row" style="margin-top:-55px;">
+            <div class="col-md-4">
+                <span ng-click="uctrl.openNav()" ng-show="uctrl.showHamburger">
+                    <h3>&#9776; On Demand Video</h3>
+                </span>
+            </div>
+            <div class="col-md-4">            
+            </div>
+            <div class="col-md-2" style="margin-top:15px">
+                <h4> Welcome {{uctrl.user[0].firstname}} </h4>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="uctrl.goHome();">Home</button>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="uctrl.doLogOutFromApp();">Log Out</button>
+            </div>
+        </div>
+        <div class="m-b-20">
+            <h4 class="text-left p-l-15">User Info  </h4>
+        </div>
+        <div>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            User Name
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            First Name
+                        </th>
+                        <th>
+                            Last Name
+                        </th>
+                        <th>
+                            Roles
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="users in uctrl.user">
+                        <td>
+                            {{users.username}}
+                        </td>
+                        <td>
+                            {{users.email}}
+                        </td>
+                        <td>
+                            {{users.firstname}}
+                        </td>
+                        <td>
+                            {{users.lastname}}
+                        </td>
+                        <td>
+                            {{users.role}}
+                        </td>
+                        <td>
+                            <span ng-click="uctrl.giveAdminRole(users.userId)"> Add Admin</span>
+                        </td>
+                        <td>
+                            <span ng-click="uctrl.removeAdminRole(users.userId)"> Remove Admin</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

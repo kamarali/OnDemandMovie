@@ -1,0 +1,79 @@
+﻿<div class="home-content" ng-controller="homeCtrl as hctrl">
+    <div id="sidenav" class="sidenav" ng-class="hctrl.sideNavClass">
+        <a class="closebtn" ng-click="hctrl.closeNav()">&times;</a>
+        <a ng-click="hctrl.users();">Admin</a>
+        <a ng-click="hctrl.addVideo();">Video</a>
+        <a ng-click="hctrl.addCategory();">Category</a>
+        <a ng-click="hctrl.addReport();">Report</a>
+    </div>
+    <div id="main" ng-class="hctrl.mainClass">
+        <div class="row" style="margin-top:-55px;">
+            <div class="col-md-4">
+                <span ng-click="hctrl.openNav()" ng-show="hctrl.showHamburger">
+                    <h3>&#9776; On Demand Video</h3>
+                </span>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <!--<button class="btn" ng-click="hctrl.doLogOutFromApp();">Log Out</button>-->
+            </div>
+            <div class="col-md-2" style="margin-top:15px">
+                <h4> Welcome {{hctrl.user[0].firstname}} </h4>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="hctrl.doLogOutFromApp();">Log Out</button>
+            </div>
+        </div>
+        
+        <div class="row" id="home">
+            <div class="col-md-12">
+                <div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-6" style="padding-left:120px;">
+                        <div class="col-md-2">
+                            <span class="label-primary"><h4>Category</h4> </span>
+                        </div>
+                        <div class="col-md-8">
+                            <select ng-model="hctrl.selectedCategory" class="form-control"
+                                    ng-change="hctrl.getVideos();">
+                                <option value="0" selected="selected">All</option>
+                                <option ng-repeat="c in hctrl.categories" value="{{c.id}}">{{c.name}}</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2" ng-hide="false">
+
+                    </div>
+                    <div class="col-md-2" ng-hide="false">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lc-block" id="homeBody">
+            <h4>Videos</h4>
+            <div class="list-group grid-container">
+                <div ng-repeat="vid in hctrl.movies" class="list-group-item " style="width: 28rem; float:left; border:0px; background-color:lavenderblush">
+                    <div>
+                        <div class="list-group-item" style="border:0px; background-color:lavenderblush">
+                            <div class="card " style="width: 18rem;">
+                                <img class="card-img-top" src="../../../Content/img/{{$index % 17}}.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{vid.name}}</b></h5>
+                                    <p class="card-text">{{vid.description}}</p>
+                                    <div ng-click="hctrl.watch(vid);">
+                                        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=6ZfuNTqbHE8" target="_blank">Watch</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

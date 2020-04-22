@@ -1,0 +1,66 @@
+﻿<div class="login-content" ng-controller="loginCtrl as lctrl">
+    <div class="row" id="l-login">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="m-b-20">
+                <h4 class="text-left p-l-15">Login</h4>
+            </div>
+            <form name="formLogin" ng-submit="lctrl.doLogin()" autocomplete="off" novalidate>
+                <div class="p-r-10">
+                    <!--USER NAME-->
+                    <div class="input-group"
+                         ng-class="{ 'm-b-15' : !(formLogin.userName.$invalid && !formLogin.userName.$pristine) }">
+                        
+                        <span class="input-group-addon">
+                            <!--<i class="zmdi zmdi-email"></i>-->
+                            <label class="input-group-sm col-sm-pull-1">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        </span>
+                        <div class="fg-line fg-line-{{currentSkin}}">
+                            <input name="userName" type="email" class="form-control"
+                                   ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                   placeholder="User Email"
+                                   ng-model="lctrl.loginData.userName"
+                                   required autofocus>
+                        </div>
+                        <small ng-show="formLogin.userName.$invalid && !formLogin.userName.$pristine" class="help-block">Enter valid email</small>
+                    </div>
+                    <!--PASSWORD-->
+                    <div class="input-group" ng-class="{ 'm-b-15' : !(formLogin.password.$invalid && !formLogin.password.$pristine) }">
+                        <span class="input-group-addon">
+                            <!--<i class="zmdi zmdi-eye-off"></i>-->
+                            <label class="input-group-sm col-sm-pull-1">Password</label>
+                        </span>
+                        <div class="fg-line fg-line-{{currentSkin}}">
+                            <input name="password" type="password" class="form-control" autocomplete="off"
+                                   ng-minlength="8"
+                                   ng-maxlength="20"
+                                   placeholder="Password"
+                                   ng-model="lctrl.loginData.password"
+                                   required>
+                        </div>
+                        <small ng-show="formLogin.password.$invalid && !formLogin.password.$pristine" class="help-block">Enter valid password (8 to 20 chars)</small>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                        type="submit"
+                        ng-disabled="formLogin.$invalid">
+                    <i class="zmdi zmdi-arrow-forward"></i> Login
+                </button>
+                <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                        ng-click="lctrl.showLogin = 0; lctrl.showRegister = 1; lctrl.register();">
+                    <i class="zmdi zmdi-arrow-forward"></i> Register
+                </button>
+            </form>
+            <ul class="login-navigation">
+                <li data-block="#l-forget-password" class="" ng-click="lctrl.showLogin = 0; lctrl.showForgot = 1">Forgot Password?</li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+</div>

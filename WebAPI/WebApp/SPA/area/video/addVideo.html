@@ -1,0 +1,284 @@
+﻿<div class="addVideo-content" ng-controller="videoCtrl as vctrl">
+    <div id="sidenav" class="sidenav" ng-class="vctrl.sideNavClass">
+        <a class="closebtn" ng-click="vctrl.closeNav()">&times;</a>
+        <a ng-click="vctrl.users();">Admin</a>
+        <a ng-click="vctrl.addVideo();">Video</a>
+        <a ng-click="vctrl.addCategory();">Category</a>
+        <a ng-click="vctrl.addReport();">Report</a>
+    </div>
+    <div id="main" ng-class="vctrl.mainClass">
+        <div class="row" style="margin-top:-55px;">
+            <div class="col-md-4">
+                <span ng-click="vctrl.openNav()" ng-show="vctrl.showHamburger">
+                    <h3>&#9776; On Demand Video</h3>
+                </span>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-2" style="margin-top:15px">
+                <h4> Welcome {{vctrl.user.firstname}} </h4>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="vctrl.goHome();">Home</button>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="vctrl.doLogOutFromApp();">Log Out</button>
+            </div>
+        </div>
+        <div class="lc-block">
+            <div>
+                <div class="m-b-20">
+                    <h4 class="text-left p-l-15">Add Video  {{vctrl.test}}</h4>
+                </div>
+                <form name="formAddVideo" ng-submit="vctrl.save()" autocomplete="off" novalidate>
+                    <div class="p-r-10">
+                        <!--VIDEO CATEGORY-->
+                        <div class="input-group"
+                             ng-class="{ 'm-b-15' : !(formAddVideo.category.$invalid && !formAddVideo.category.$pristine) }">
+                            <span class="input-group-addon">
+                                <label class="input-group-sm col-sm-pull-1">Category&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </span>
+                            <div class="fg-line fg-line-{{currentSkin}}">
+                                <select ng-options="category.id as category.name for category in vctrl.categories"
+                                        ng-model="vctrl.video.selectedCategory"
+                                        name="category" class="form-control"                                         
+                                        required autofocus>
+                                </select>
+                            </div>
+                        </div>
+                        <!--VIDEO NAME-->
+                        <div class="input-group"
+                             ng-class="{ 'm-b-15' : !(formAddVideo.name.$invalid && !formAddVideo.name.$pristine) }">
+                            <span class="input-group-addon">
+                                <label class="input-group-sm col-sm-pull-1">Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            </span>
+                            <div class="fg-line fg-line-{{currentSkin}}">
+                                <input name="name" type="text" class="form-control"
+                                       placeholder="Name"
+                                       ng-model="vctrl.video.name"
+                                       required autofocus>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <small ng-show="formAddVideo.name.$invalid && !formAddVideo.name.$pristine" class="help-block c-red">Enter valid name</small>
+                        </div>
+                        <div>
+
+                        </div>
+                        <!--VIDEO DESCRIPTION-->
+                        <div class="input-group"
+                             ng-class="{ 'm-b-15' : !(formAddVideo.description.$invalid && !formAddVideo.description.$pristine) }">
+                            <span class="input-group-addon">
+                                <label class="input-group-sm col-sm-pull-1">Description</label>
+                            </span>
+                            <div class="fg-line fg-line-{{currentSkin}}">
+                                <textarea name="description" type="text" class="form-control"
+                                          placeholder="Description"
+                                          ng-model="vctrl.video.description" style="height:150px"
+                                          required autofocus > </textarea>
+                            </div>
+                            
+                        </div>
+                        <div>
+                            <small ng-show="formAddVideo.description.$invalid && !formAddVideo.description.$pristine" class="help-block c-red">Enter valid description</small>
+                        </div>
+                        <div></div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                            type="submit"
+                            ng-disabled="formAddVideo.$invalid"
+                            data-toggle="modal" data-target="#myModal">
+                        <i class="zmdi zmdi-arrow-forward"></i> Add
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                        <th>
+                            Details
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat-start="vid in vctrl.allVideos track by $index">
+                        <td>
+                            {{vid.name}}
+                        </td>
+                        <td>
+                            {{vid.categoryName}}
+                        </td>
+                        <td>
+                            {{vid.description}}
+                        </td>
+                        <td>
+                            <span ng-click="vctrl.setRemoveVideo(vid.id);" data-toggle="modal" data-target="#confirmDelete">Delete</span>
+                            <div class="modal fade" id="confirmDelete" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Are you Sure</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Do you want to delete?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vctrl.removeVideo();">Yes</button>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button ng-if="vctrl.rowNumber == $index" ng-click="vctrl.detailView(-1)">-</button>
+                            <button ng-if="vctrl.rowNumber != $index" ng-click="vctrl.detailView($index,vid)">+</button>
+                        </td>
+                    </tr>
+                    <tr ng-if="vctrl.rowNumber == $index" ng-repeat-end="">
+                        <td colspan="4">
+
+                            <form name="formUpdateVideo" ng-submit="vctrl.update()" autocomplete="off" novalidate>
+                                <div class="p-r-10">
+
+                                    <div class="row">
+                                        <!--VIDEO CATEGORY-->
+                                        <div class="col-md-4">
+                                            <div class="input-group"
+                                                 ng-class="{ 'm-b-15' : !(formUpdateVideo.category.$invalid && !formUpdateVideo.category.$pristine) }">
+                                                <span class="input-group-addon">
+                                                    <label class="input-group-sm col-sm-pull-1">Category&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                </span>
+                                                <div class="fg-line fg-line-{{currentSkin}}">
+                                                    <select ng-options="category.id as category.name for category in vctrl.categories"
+                                                            ng-model="vctrl.updateVideo.selectedCategory"
+                                                            name="category" class="form-control" required autofocus></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!--VIDEO NAME-->
+                                            <div class="input-group"
+                                                 ng-class="{ 'm-b-15' : !(formUpdateVideo.name.$invalid && !formUpdateVideo.name.$pristine) }">
+                                                <span class="input-group-addon">
+                                                    <label class="input-group-sm col-sm-pull-1">Name&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                </span>
+                                                <div class="fg-line fg-line-{{currentSkin}}">
+                                                    <input name="name" type="text" class="form-control" ng-change="vctrl.updateVideo.selectedCategory=3"
+                                                           placeholder="Name"
+                                                           ng-model="vctrl.updateVideo.name"
+                                                           required autofocus>
+                                                </div>
+                                                <small ng-show="formUpdateVideo.name.$invalid && !formUpdateVideo.name.$pristine" class="help-block">Enter valid name</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <!--VIDEO DESCRIPTION-->
+                                            <div class="input-group"
+                                                 ng-class="{ 'm-b-15' : !(formUpdateVideo.description.$invalid && !formUpdateVideo.description.$pristine) }">
+                                                <span class="input-group-addon">
+                                                    <label class="input-group-sm col-sm-pull-1">Description</label>
+                                                </span>
+                                                <div class="fg-line fg-line-{{currentSkin}}">
+                                                    <textarea name="description" type="text" class="form-control"
+                                                              placeholder="Description"
+                                                              ng-model="vctrl.updateVideo.description"
+                                                              required autofocus> </textarea>
+                                                </div>
+                                                <small ng-show="formUpdateVideo.description.$invalid && !formUpdateVideo.description.$pristine" class="help-block">Enter valid description</small>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn bgm-{{ currentSkin == 'default' ? 'blue' : currentSkin }} btn-icon-text w-100"
+                                                    type="submit"
+                                                    ng-disabled="formUpdateVideo.$invalid"
+                                                    data-toggle="modal" data-target="#confirmUpdate">
+                                                <i class="zmdi zmdi-arrow-forward"></i> Update
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </td>
+                    </tr>
+                    <tr ng-if="vctrl.allVideos.length == 0">
+                        <td colspan="4">
+                            No Video available
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sucess</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Video Added Sucessfuly.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal fade" id="confirmUpdate" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Sucess</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Video Updated Sucessfuly.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

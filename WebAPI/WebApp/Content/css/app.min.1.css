@@ -1,0 +1,881 @@
+﻿body {
+    margin: 0;
+    -ms-overflow-style: scrollbar;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.m-t-0 {
+    margin-top: 0px !important;
+}
+
+.m-b-0 {
+    margin-bottom: 0px !important;
+}
+
+.m-l-0 {
+    margin-left: 0px !important;
+}
+
+.m-l-neg2 {
+    margin-left: -2px !important;
+}
+
+.m-r-0 {
+    margin-right: 0px !important;
+}
+
+.m-t-1em {
+    margin-top: 1em !important;
+}
+
+.m-5 {
+    margin: 5px !important;
+}
+
+.m-t-5 {
+    margin-top: 5px !important;
+}
+
+.m-b-5 {
+    margin-bottom: 5px !important;
+}
+
+.m-l-5 {
+    margin-left: 5px !important;
+}
+
+.m-r-5 {
+    margin-right: 5px !important;
+}
+
+.m-l-50 {
+    margin-left: 50px !important;
+}
+
+.m-l-50 {
+    margin-left: 50px !important;
+}
+
+.m-10 {
+    margin: 10px !important;
+}
+
+.m-t-10 {
+    margin-top: 10px !important;
+}
+
+.m-b-10 {
+    margin-bottom: 10px !important;
+}
+
+.m-l-10 {
+    margin-left: 10px !important;
+}
+
+.m-r-10 {
+    margin-right: 10px !important;
+}
+
+.m-15 {
+    margin: 15px !important;
+}
+
+.m-t-15 {
+    margin-top: 15px !important;
+}
+
+.m-t-neg5 {
+    margin-top: -5px !important;
+}
+
+.m-t-neg15 {
+    margin-top: -15px !important;
+}
+
+.m-t-neg20 {
+    margin-top: -20px !important;
+}
+
+.m-t-neg25 {
+    margin-top: -25px !important;
+}
+
+.m-t-neg30 {
+    margin-top: -30px !important;
+}
+
+
+.m-t-neg40 {
+    margin-top: -40px !important;
+}
+
+.m-l-neg10 {
+    margin-left: -10px !important;
+}
+
+.m-b-15 {
+    margin-bottom: 15px !important;
+}
+
+.m-l-15 {
+    margin-left: 15px !important;
+}
+
+.m-r-15 {
+    margin-right: 15px !important;
+}
+
+.m-20 {
+    margin: 20px !important;
+}
+
+.m-t-20 {
+    margin-top: 20px !important;
+}
+
+.m-b-20 {
+    margin-bottom: 20px !important;
+}
+
+.m-l-20 {
+    margin-left: 20px !important;
+}
+
+.m-r-20 {
+    margin-right: 20px !important;
+}
+
+.m-25 {
+    margin: 25px !important;
+}
+
+.m-t-25 {
+    margin-top: 25px !important;
+}
+
+.m-b-25 {
+    margin-bottom: 25px !important;
+}
+
+.m-l-25 {
+    margin-left: 25px !important;
+}
+
+.m-r-25 {
+    margin-right: 25px !important;
+}
+
+.m-r-75 {
+    margin-right: 75px !important;
+}
+
+.m-30 {
+    margin: 30px !important;
+}
+
+.m-t-30 {
+    margin-top: 30px !important;
+}
+
+.m-b-30 {
+    margin-bottom: 30px !important;
+}
+
+.m-l-30 {
+    margin-left: 30px !important;
+}
+
+.m-r-30 {
+    margin-right: 30px !important;
+}
+
+.m-b-60 {
+    margin-bottom: 60px !important;
+}
+
+.m-b-150 {
+    margin-bottom: 150px !important;
+}
+/*
+ * Generate Padding Class
+ * padding, padding-top, padding-bottom, padding-left, padding-right
+ */
+
+.p-0 {
+    padding: 0px !important;
+}
+
+.p-t-0 {
+    padding-top: 0px !important;
+}
+
+.p-b-0 {
+    padding-bottom: 0px !important;
+}
+
+.p-l-0 {
+    padding-left: 0px !important;
+}
+
+.p-r-0 {
+    padding-right: 0px !important;
+}
+
+.p-5 {
+    padding: 5px !important;
+}
+
+.p-t-5 {
+    padding-top: 5px !important;
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important;
+}
+
+.p-l-5 {
+    padding-left: 5px !important;
+}
+
+.p-r-5 {
+    padding-right: 5px !important;
+}
+
+.p-l-7 {
+    padding-left: 7px !important;
+}
+
+.p-8 {
+    padding: 8px !important;
+}
+
+.p-t-8 {
+    padding-top: 8px !important;
+}
+
+.p-b-8 {
+    padding-bottom: 8px !important;
+}
+
+.p-l-8 {
+    padding-left: 8px !important;
+}
+
+.p-r-8 {
+    padding-right: 8px !important;
+}
+
+
+
+.p-10 {
+    padding: 10px !important;
+}
+
+.p-t-1 {
+    padding-top: 1px !important;
+}
+
+
+.p-t-10 {
+    padding-top: 10px !important;
+}
+
+.p-b-1 {
+    padding-bottom: 1px !important;
+}
+
+.p-b-10 {
+    padding-bottom: 10px !important;
+}
+
+.p-l-10 {
+    padding-left: 10px !important;
+}
+
+.p-r-10 {
+    padding-right: 10px !important;
+}
+
+.p-15 {
+    padding: 15px !important;
+}
+
+.p-t-15 {
+    padding-top: 15px !important;
+}
+
+.p-b-15 {
+    padding-bottom: 15px !important;
+}
+
+.p-l-15 {
+    padding-left: 15px !important;
+}
+
+.p-r-15 {
+    padding-right: 15px !important;
+}
+
+.p-20 {
+    padding: 20px !important;
+}
+
+.p-t-20 {
+    padding-top: 20px !important;
+}
+
+.p-b-20 {
+    padding-bottom: 20px !important;
+}
+
+.p-l-20 {
+    padding-left: 20px !important;
+}
+
+.p-l-22 {
+    padding-left: 22px !important;
+}
+
+.p-r-20 {
+    padding-right: 20px !important;
+}
+
+.p-25 {
+    padding: 25px !important;
+}
+
+.p-t-25 {
+    padding-top: 25px !important;
+}
+
+.p-b-25 {
+    padding-bottom: 25px !important;
+}
+
+.p-l-25 {
+    padding-left: 25px !important;
+}
+
+.p-r-25 {
+    padding-right: 25px !important;
+}
+
+.p-30 {
+    padding: 30px !important;
+}
+
+.p-t-30 {
+    padding-top: 30px !important;
+}
+
+.p-t-50 {
+    padding-top: 50px !important;
+}
+
+.p-b-30 {
+    padding-bottom: 30px !important;
+}
+
+.p-l-30 {
+    padding-left: 30px !important;
+}
+
+.p-l-40 {
+    padding-left: 40px !important;
+}
+
+.p-l-60 {
+    padding-left: 60px !important;
+}
+
+.p-r-30 {
+    padding-right: 30px !important;
+}
+
+.p-l-500 {
+    padding-left: 500px !important;
+}
+/*
+ * Generate Font-Size Classes (8px - 20px)
+ */
+
+.f-8 {
+    font-size: 8px !important;
+}
+
+.f-9 {
+    font-size: 9px !important;
+}
+
+.f-10 {
+    font-size: 10px !important;
+}
+
+.f-11 {
+    font-size: 11px !important;
+}
+
+.f-12 {
+    font-size: 12px !important;
+}
+
+.f-13 {
+    font-size: 13px !important;
+}
+
+.f-14 {
+    font-size: 14px !important;
+}
+
+.f-15 {
+    font-size: 15px !important;
+}
+
+.f-16 {
+    font-size: 16px !important;
+}
+
+.f-17 {
+    font-size: 17px !important;
+}
+
+.f-18 {
+    font-size: 18px !important;
+}
+
+.f-19 {
+    font-size: 19px !important;
+}
+
+.f-20 {
+    font-size: 20px !important;
+}
+
+/*
+ * Font Weight
+ */
+
+.f-300 {
+    font-weight: 300 !important;
+}
+
+.f-400 {
+    font-weight: 400 !important;
+}
+
+.f-500 {
+    font-weight: 500 !important;
+}
+
+.f-700 {
+    font-weight: 700 !important;
+}
+
+/*
+ * Position Classes
+ */
+
+.p-relative {
+    position: relative !important;
+}
+
+.p-absolute {
+    position: absolute !important;
+}
+
+.p-fixed {
+    position: fixed !important;
+}
+
+.p-static {
+    position: static !important;
+}
+
+/*
+ * Overflow
+ */
+
+.o-hidden {
+    overflow: hidden !important;
+}
+
+.o-visible {
+    overflow: visible !important;
+}
+
+.o-auto {
+    overflow: auto !important;
+}
+
+/*
+ * Display
+ */
+
+.d-block {
+    display: block !important;
+}
+
+.di-block {
+    display: inline-block !important;
+}
+
+.d-inline {
+    display: inline;
+}
+/* 
+ * Material Background Colors
+ */
+
+.bgm-white {
+    background-color: #ffffff !important;
+}
+
+.c-white {
+    color: #ffffff !important;
+}
+
+button.btn-link-white {
+}
+
+    button.btn-link-white:hover {
+        color: #ffffff !important;
+    }
+
+li.active > a.tabAnchor-white:after {
+    background: #ffffff;
+}
+
+.bgm-black {
+    background-color: #000000 !important;
+}
+
+.c-black {
+    color: #000000 !important;
+}
+
+button.btn-link-black {
+}
+
+    button.btn-link-black:hover {
+        color: #000000 !important;
+    }
+
+li.active > a.tabAnchor-black:after {
+    background: #000000;
+}
+
+.bgm-brown {
+    background-color: #795548 !important;
+}
+
+.c-brown {
+    color: #795548 !important;
+}
+
+button.btn-link-brown {
+}
+
+    button.btn-link-brown:hover {
+        color: #795548 !important;
+    }
+
+li.active > a.tabAnchor-brown:after {
+    background: #795548;
+}
+
+.bgm-pink {
+    background-color: #e91e63 !important;
+}
+
+.c-pink {
+    color: #e91e63 !important;
+}
+
+button.btn-link-pink {
+}
+
+    button.btn-link-pink:hover {
+        color: #e91e63 !important;
+    }
+
+li.active > a.tabAnchor-pink:after {
+    background: #e91e63;
+}
+
+.bgm-red {
+    background-color: #f44336 !important;
+}
+
+.c-red {
+    color: #f44336 !important;
+}
+
+button.btn-link-red {
+}
+
+    button.btn-link-red:hover {
+        color: #f44336 !important;
+    }
+
+li.active > a.tabAnchor-red:after {
+    background: #f44336;
+}
+
+.bgm-blue {
+    background-color: #2196f3 !important;
+}
+
+.c-blue {
+    color: #2196f3 !important;
+}
+
+button.btn-link-blue {
+}
+
+    button.btn-link-blue:hover {
+        color: #2196f3 !important;
+    }
+
+li.active > a.tabAnchor-blue:after {
+    background: #2196f3;
+}
+
+.bgm-purple {
+    background-color: #9c27b0 !important;
+}
+
+.c-purple {
+    color: #9c27b0 !important;
+}
+
+button.btn-link-purple {
+}
+
+    button.btn-link-purple:hover {
+        color: #9c27b0 !important;
+    }
+
+li.active > a.tabAnchor-purple:after {
+    background: #9c27b0;
+}
+
+.bgm-deeppurple {
+    background-color: #673ab7 !important;
+}
+
+.c-deeppurple {
+    color: #673ab7 !important;
+}
+
+button.btn-link-deeppurple {
+}
+
+    button.btn-link-deeppurple:hover {
+        color: #673ab7 !important;
+    }
+
+li.active > a.tabAnchor-deeppurple:after {
+    background: #673ab7;
+}
+
+.bgm-lightblue {
+    background-color: #03a9f4 !important;
+}
+
+.c-lightblue {
+    color: #03a9f4 !important;
+}
+
+button.btn-link-lightblue {
+}
+
+    button.btn-link-lightblue:hover {
+        color: #03a9f4 !important;
+    }
+
+li.active > a.tabAnchor-lightblue:after {
+    background: #03a9f4;
+}
+
+.bgm-cyan {
+    background-color: #00bcd4 !important;
+}
+
+.c-cyan {
+    color: #00bcd4 !important;
+}
+
+button.btn-link-cyan {
+}
+
+    button.btn-link-cyan:hover {
+        color: #00bcd4 !important;
+    }
+
+li.active > a.tabAnchor-cyan:after {
+    background: #00bcd4;
+}
+
+.bgm-teal {
+    background-color: #009688 !important;
+}
+
+.c-teal {
+    color: #009688 !important;
+}
+
+button.btn-link-teal {
+}
+
+    button.btn-link-teal:hover {
+        color: #009688 !important;
+    }
+
+li.active > a.tabAnchor-teal:after {
+    background: #009688;
+}
+
+.bgm-green {
+    background-color: #4caf50 !important;
+}
+
+.c-green {
+    color: #4caf50 !important;
+}
+
+button.btn-link-green {
+}
+
+    button.btn-link-green:hover {
+        color: #4caf50 !important;
+    }
+
+li.active > a.tabAnchor-green:after {
+    background: #4caf50;
+}
+
+.bgm-lightgreen {
+    background-color: #8bc34a !important;
+}
+
+.c-lightgreen {
+    color: #8bc34a !important;
+}
+
+button.btn-link-lightgreen {
+}
+
+    button.btn-link-lightgreen:hover {
+        color: #8bc34a !important;
+    }
+
+li.active > a.tabAnchor-lightgreen:after {
+    background: #8bc34a;
+}
+
+.bgm-lime {
+    background-color: #cddc39 !important;
+}
+
+.c-lime {
+    color: #cddc39 !important;
+}
+
+button.btn-link-lime {
+}
+
+    button.btn-link-lime:hover {
+        color: #cddc39 !important;
+    }
+
+li.active > a.tabAnchor-lime:after {
+    background: #cddc39;
+}
+
+.bgm-yellow {
+}
+
+#home {
+    background-color: white;
+    border-color: white;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+.openSidenav{
+    width:250px;
+}
+
+.openMain {
+    margin-left: 250px;
+}
+
+.closeSidenav {
+    width: 0px;
+}
+
+.closeMain {
+    margin-left: 0px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}

@@ -1,0 +1,188 @@
+﻿﻿ <!-- Register -->
+<div class="register-content" ng-controller="registerCtrl as lctrl">
+
+    <div id="l-register">
+
+
+        <div class="m-b-20">
+            <h4 class="text-left p-l-15">
+                {{lctrl.registerSuccess ? 'Registration' : 'User Registration' }}
+            </h4>
+        </div>
+        <div>
+            ﻿<form name="formRegister" ng-submit="lctrl.doRegister()" autocomplete="off" novalidate>
+                <div class="p-r-10">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <!--FIRST NAME-->
+                            <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.firstName.$invalid && !formRegister.firstName.$pristine) }">
+                                <span class="input-group-addon">
+                                    <!--<i class="zmdi zmdi-account-box"></i>-->
+                                    <label class="input-group-sm col-sm-pull-1">First Name</label>
+                                </span>
+                                <div class="fg-line fg-line-{{currentSkin}}">
+                                    <input name="firstName" type="text" class="form-control"
+                                           ng-maxlength="50"
+                                           placeholder="First Name"
+                                           ng-model="lctrl.registerData.firstName"
+                                           required autofocus>
+                                </div>
+                            </div>
+                            <div>
+                                <small ng-show="formRegister.firstName.$invalid && !formRegister.firstName.$pristine" class="help-block c-red">Enter valid first name (max 50 chars)</small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <!--LAST NAME-->
+                            <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.lastName.$invalid && !formRegister.lastName.$pristine) }">
+                                <span class="input-group-addon">
+                                    <!--<i class=""></i>-->
+                                    <label class="input-group-sm col-sm-pull-1">Last Name</label>
+                                </span>
+                                <div class="fg-line fg-line-{{currentSkin}}">
+                                    <input name="lastName" type="text" class="form-control"
+                                           ng-maxlength="50"
+                                           placeholder="Last Name"
+                                           ng-model="lctrl.registerData.lastName"
+                                           required autofocus>
+                                </div>
+                            </div>
+                            <div>
+                                <small ng-show="formRegister.lastName.$invalid && !formRegister.lastName.$pristine" class="help-block c-red">Enter valid last name (max 50 chars)</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <!--USER NAME-->
+                            <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.userName.$invalid && !formRegister.userName.$pristine) }">
+                                <span class="input-group-addon">
+                                    <!--<i class="zmdi zmdi-email"></i>-->
+                                    <label class="input-group-sm col-sm-pull-1">User Name</label>
+                                </span>
+                                <div class="fg-line fg-line-{{currentSkin}}">
+                                    <input name="userName" type="email" class="form-control"
+                                           ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                           placeholder="User Name"
+                                           ng-model="lctrl.registerData.userName"
+                                           required autofocus>
+                                </div>
+                            </div>
+                            <div>
+                                <small ng-show="formRegister.userName.$invalid && !formRegister.userName.$pristine" class="help-block c-red">Enter valid email</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div>
+                                <!--USER EMAIL-->
+                                <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.userEmail.$invalid && !formRegister.userEmail.$pristine) }">
+                                    <span class="input-group-addon">
+                                        <!--<i class="zmdi zmdi-email"></i>-->
+                                        <label class="input-group-sm col-sm-pull-1">User Email</label>
+                                    </span>
+                                    <div class="fg-line fg-line-{{currentSkin}}">
+                                        <input name="userEmail" type="email" class="form-control"
+                                               ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                                               placeholder="User Email"
+                                               ng-model="lctrl.registerData.userEmail"
+                                               ng-readonly="authAuthMode == 'SAML_AZURE' && lctrl.showExternalRegister == 0"
+                                               required autofocus>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small ng-show="formRegister.userEmail.$invalid && !formRegister.userEmail.$pristine" class="help-block c-red">Enter valid email</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-4">
+                            <!--PASSWORD-->
+                            <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.password.$invalid && !formRegister.password.$pristine) }">
+                                <span class="input-group-addon">
+                                    <!--<i class="zmdi zmdi-eye-off"></i>-->
+                                    <label class="input-group-sm col-sm-pull-1">Password</label>
+                                </span>
+                                <div class="fg-line fg-line-{{currentSkin}}">
+                                    <input name="password" type="password" class="form-control" autocomplete="off"
+                                           ng-minlength="8"
+                                           ng-maxlength="20"
+                                           placeholder="Password"
+                                           ng-model="lctrl.registerData.password"
+                                           ng-pattern="/^[^&%]*$/"
+                                           required>
+                                </div>
+                            </div>
+                            <div>
+                                <small ng-show="formRegister.password.$invalid && !formRegister.password.$pristine" class="help-block c-red">Enter valid password (8 to 20 chars, invalid characters are &,%)</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <!--CONFIRM PASSWORD-->
+                            <div class="input-group" ng-class="{ 'm-b-15' : !(formRegister.confirmPassword.$invalid && !formRegister.confirmPassword.$pristine) }">
+                                <span class="input-group-addon">
+                                    <!--<i class=""></i>-->
+                                    <label class="input-group-sm col-sm-pull-1">Confirm Password</label>
+                                </span>
+                                <div class="fg-line fg-line-{{currentSkin}}">
+                                    <input name="confirmPassword" type="password" class="form-control" autocomplete="off"
+                                           ng-minlength="8"
+                                           ng-maxlength="20"
+                                           placeholder="Reenter Password"
+                                           ng-model="lctrl.registerData.confirmPassword"
+                                           data-password-verify="lctrl.registerData.password"
+                                           required>
+                                </div>
+                            </div>
+                            <div>
+                                <small ng-show="formRegister.confirmPassword.$error.passwordVerify" class="help-block c-red">Passwords not matching</small>
+                            </div>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-1">
+                        <button class="btn "
+                                type="submit"
+                                ng-disabled="formRegister.$invalid">
+                            <i class="zmdi zmdi-arrow-forward"></i> Register
+                        </button>
+                    </div>
+
+                    <div class="col-md-1">
+                        <button class="btn"
+                                ng-click="lctrl.login();"
+                                >
+                            <i class="zmdi zmdi-arrow-forward"></i> Login
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+        </div>
+
+
+        <div ng-if="lctrl.redirectPending === true">
+            <div ng-include="urlProxyRoute('SPA/common/views/registerPending.html')" />
+        </div>
+
+        <div ng-include="'Content/brand/Footer-A.html'"></div>
+
+    </div>
+
+</div>

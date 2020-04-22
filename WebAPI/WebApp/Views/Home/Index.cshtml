@@ -1,0 +1,22 @@
+﻿<html ng-app="App">
+<head>
+    <title></title>
+    @Styles.RenderFormat("<link href='{0}' rel='stylesheet'></link>", "~/Content/css")
+    <script>
+        var apiBaseUri = '@System.Configuration.ConfigurationManager.AppSettings["webapi.base.uri"]';
+    </script>
+</head>
+<body data-ng-controller="rootCtrl as ctrl"
+      data-ng-class="{ 'sw-toggled': ctrl.layoutType === '1'}">
+    <data ui-view></data>
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/AngularJS")
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/AppJS")
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/jquery")
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/jqueryval")
+   
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/bootstrap")
+
+    @Scripts.RenderFormat("<script src='{0}'></script>", "~/bundles/modernizr")
+
+</body>
+</html>

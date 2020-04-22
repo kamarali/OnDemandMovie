@@ -1,0 +1,63 @@
+﻿<div class="reports-content" ng-controller="reportCtrl as hctrl">
+    <div id="sidenav" class="sidenav" ng-class="hctrl.sideNavClass">
+        <a class="closebtn" ng-click="hctrl.closeNav()">&times;</a>
+        <a ng-click="hctrl.users();">Admin</a>
+        <a ng-click="hctrl.addVideo();">Video</a>
+        <a ng-click="hctrl.addCategory();">Category</a>
+        <a ng-click="hctrl.addReport();">Report</a>
+    </div>
+    <div id="main" ng-class="hctrl.mainClass">
+        <div class="row" style="margin-top:-55px;">
+            <div class="col-md-4">
+                <span ng-click="hctrl.openNav()" ng-show="hctrl.showHamburger">
+                    <h3>&#9776; On Demand Video</h3>
+                </span>
+            </div>
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-2" style="margin-top:15px">
+                <h4> Welcome {{hctrl.user.firstname}} </h4>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="hctrl.goHome();">Home</button>
+            </div>
+            <div class="col-md-1" style="margin-top:15px;">
+                <button class="btn" ng-click="hctrl.doLogOutFromApp();">Log Out</button>
+            </div>
+        </div>
+        <div>
+            <h3>Top Tending Videos Report</h3>
+            <div style="height:40vh; width:80vh;">
+                <canvas id="pie" class="chart chart-pie" chart-data="hctrl.videoWatchCount" chart-labels="hctrl.videoName" chart-options="hctrl.option" chart-colors="hctrl.colors"></canvas>
+            </div>            
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Number of Visits
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="video in hctrl.trendingVideosList">
+                        <td>
+                            {{video.name}}
+                        </td>
+                        <td>
+                            {{video.category}}
+                        </td>
+                        <td>
+                            {{video.watchCount}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
